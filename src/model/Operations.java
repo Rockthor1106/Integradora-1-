@@ -72,7 +72,64 @@ public class Operations{
 			else if(location.equalsIgnoreCase("centro") && total >= 300000) {
 				price_transport = 0;
 			}
-			
+			else {
+				 System.out.println("Error, por favor seleccione una ubicacion correcta");
+			}
 			return price_transport;
 	}
+	public static int countOnes (int[]utilization) {
+		 int countOnes=0;
+		 for(int i=0;i<utilization.length;i++) {
+			   if(utilization[i]==1) {
+					   countOnes++;
+				  }
+		  }
+			return countOnes;
+	}
+	public static int countTwos (int[]utilization) {
+		 int countTwos=0;
+		 for(int i=0;i<utilization.length;i++) {
+			   if(utilization[i]==2) {
+					   countTwos++;
+				  }
+		  }
+			return countTwos;
+	}
+	public static int countThrees (int[]utilization) {
+		 int countThrees=0;
+		 for(int i=0;i<utilization.length;i++) {
+			   if(utilization[i]==3) {
+					   countThrees++;
+				  }
+		  }
+			return countThrees;
+	}
+	public static String[] roughConstruction (int count,String[]name_material,int[]utilization) {
+		 String[] roughConstruction = new String[count];
+		 for(int i=0;i<utilization.length;i++) {
+			   if(utilization[i]==1) {
+					   roughConstruction[i]=name_material[i];
+				  }
+		  }
+			return roughConstruction;
+	}
+	public static String[] finalConstruction (int count,String[]name_material,int[]utilization) {
+		 String[] finalConstruction = new String[count];
+		 for(int i=0;i<utilization.length;i++) {
+			   if(utilization[i]==1) {
+					   finalConstruction[i]=name_material[i];
+				  }
+		  }
+			return finalConstruction;
+	}
+	public static String[] paint (int count,String[]name_material,int[]utilization) {
+		 String[] paint = new String[count];
+		 for(int i=0;i<utilization.length;i++) {
+			   if(utilization[i]==1) {
+					   paint[i]=name_material[i];
+				  }
+		  }
+			return paint;
+	}
+
 } 
