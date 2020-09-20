@@ -32,7 +32,7 @@ public class Integrative{
 
    //get data 
   
-	 for(int i=0;i<3;i++){
+	 for(int i=0;i<amount;i++){
 		 System.out.println("Ingrese el nombre del material: ");
 		 name_material[i] = sc.next();
 		 System.out.println("Ingrese la cantidad del material: ");
@@ -98,24 +98,22 @@ public class Integrative{
 	*@param selection An integer <br>
 	*/
 	public static void categoryList (Scanner sc,String[]name_material,int[]utilization,int selection) {
-	 int countOnes=Operations.countOnes(utilization);
-	 int countTwos=Operations.countTwos(utilization);
-	 int countThrees=Operations.countThrees(utilization);
+	 int count=Operations.count(utilization,selection);
 	 System.out.println("¿Cual lista desea desplegar?, precione 1 para Obra negra, 2 para Obra blanca y 3 para Pintura");
 	 selection = sc.nextInt();
 	 if(selection==1) {
-	    for(int j=0;j<countOnes;j++) {
-	       System.out.println(Operations.roughConstruction(countOnes,name_material,utilization)[j]);
+	    for(int j=0;j<count;j++) {
+	       System.out.println(Operations.CategoryConstruction(count,name_material,utilization,selection)[j]);
 	    }
 	  }
 	 else if (selection==2) {
-	    for(int j=0;j<countTwos;j++) {
-	       System.out.println(Operations.finalConstruction(countTwos,name_material,utilization)[j]);
+	    for(int j=0;j<count;j++) {
+	       System.out.println(Operations.CategoryConstruction(count,name_material,utilization,selection)[j]);
 	    }
 	  }
 	 else if (selection==3) {
-	    for(int j=0;j<countThrees;j++) {
-	       System.out.println(Operations.paint(countThrees,name_material,utilization)[j]);
+	    for(int j=0;j<count;j++) {
+	       System.out.println(Operations.CategoryConstruction(count,name_material,utilization,selection)[j]);
 	    }
 	  }
 	}
