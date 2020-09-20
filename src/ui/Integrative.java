@@ -2,6 +2,7 @@ package ui;
 import model.*;
 import java.util.Scanner;
 public class Integrative{
+private static final int total_labor=4880000;
  /**<b> Method main to declare the arrays and fill them</b><br>
  *<b> pre: </b> The methods used in this method must be created and have correct operation <br>
  *<b> pre: </b> The scanner sc must be iniatialized <br>
@@ -73,17 +74,19 @@ public class Integrative{
 	*@param utilization An array of integers <br>
 	*/
 	public static void showData(int[]homecenter,int[]local_store,int[]hub_store,String[]name_material,int amount,String location,int[] utilization){
-	 System.out.println("Total cuenta en Home Center incluida mano de obra: " + (Operations.total(homecenter)));
-	 System.out.println("Total cuenta en la Ferreteria del Barrio incluia mano de obra: " + Operations.total(local_store));
-	 System.out.println("Total cuenta en la Ferreteria del Centro incluida mano de obra:" + Operations.total(hub_store));
+	 System.out.println("Total cuenta en Home Center incluida mano de obra: " + Operations.total(homecenter)+total_labor);
+	 System.out.println("Total cuenta en la Ferreteria del Barrio incluia mano de obra: " + Operations.total(local_store)+total_labor);
+	 System.out.println("Total cuenta en la Ferreteria del Centro incluida mano de obra:" + Operations.total(hub_store)+total_labor);
 	 System.out.println("Las mejores opciones para comprar son: ");
 	 int[]best_prices= Operations.bestOption(homecenter,local_store,hub_store,amount);
 	 for(int i=0;i<amount;i++){	   
 		   System.out.println(name_material[i]+" a un precio de "+ Operations.bestOption(homecenter,local_store,hub_store,amount)[i]+" pesos en "+ Operations.stores(best_prices,homecenter,local_store,hub_store,amount)[i]);
 		}
 	 System.out.println("EL total de la cuenta con los mejores precios para cada producto incuida mano de obra es: " + Operations.total(best_prices) + " pesos");
+	 System.out.println("La mano de obra total tiene un valor de: " + total_labor);
 	 int total = Operations.total(best_prices);
 	 System.out.println("El precio de transporte es: " + Operations.transport(total,location) + " pesos");
+	 System.out.println("El precio final sumando los tres valores anteriores es: " + (Operations.total(best_prices)+total_labor+Operations.transport(total,location)));
 	  
   }
 	/** <b>Method that deploy a list with the material for the caterogy that the user selects </b><br>
