@@ -69,7 +69,7 @@ public class Operations{
 		}
 		return stores;
 	}
-	/**<b> Method that defines the price of transport of materials for each ubication depending on the total of the account </b><br>
+	/**<b> Method that defines the price of transport of materials for each location depending on the total of the account </b><br>
 	*<b> pre: </b> The arrays received per parameter must be declared and initialized <br>
 	*<b> pre: </b> The integer total have to be the total price of materials without labor <br>
 	*<b> pre: </b> The array location have to be only the words requested from the user by a message of console <br>
@@ -120,14 +120,14 @@ public class Operations{
 	*@param utilization An array of integers <br>
 	*@param selection An integer <br>
 	*/
-	public static int count (int[]utilization,int selection) {
-		 int count=0;
+	public static int[] count (int[]utilization,int selection) {
+		 int[] count = new int[3];
 		 for(int i=0;i<utilization.length;i++) {
-			   if(utilization[i]==1) {
-					   count++;
-				  }
-		  }
-			return count;
+			   if(utilization[i]==selection) {
+				   count[selection-1]++;
+			   }
+		 }
+		 return count;
 	}
 	/**<b> Method that creates an array where save the materials that belong to selection of user2 </b><br>
 	*<b> pre: </b> The arrays and variables received per parameter must be declared and initialized <br>
@@ -141,11 +141,9 @@ public class Operations{
 	*/
 	public static String[] CategoryConstruction (int count,String[]name_material,int[]utilization,int selection) {
 		 String[] CategoryConstruction = new String[count];
-		 for(int i=0;i<utilization.length;i++) {
-			   if(utilization[i]==selection) {
-					   CategoryConstruction[i]=name_material[i];
-				  }
-		  }
-			return CategoryConstruction;
+		 for(int i=0;i<count;i++) {
+			 CategoryConstruction[i]=name_material[i];
+		 }
+		 return CategoryConstruction;
 	}
-} 
+}
